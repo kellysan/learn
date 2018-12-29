@@ -32,4 +32,4 @@ if salary.isdigit():
             print("您还剩下",salary)
             exit()
         else:
-            print("Invalid option")3
+            print("Invalid option")
