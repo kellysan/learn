@@ -26,8 +26,8 @@ nodeInfo= '''
     0 增加学生信息
     1 删除学生信息
     2 修改学生信息
-    4 查找学生信息
-    5 退出系统
+    3 查找学生信息
+    4 退出系统
 
 '''
 #stuList = [{'name': '三胖', 'age': 14, 'class': '7年级1班', 'sex': '男'}]
@@ -35,7 +35,7 @@ stuList = []
 inputInfo = '''
    0 添加资料信息
    1 退出添加
-   提示：类只能使用英文，年龄请输入数字，内容请正确添加
+   要求：类只能使用英文，年龄请输入数字，内容请正确添加
 '''
 while True:
     print(nodeInfo)
@@ -77,14 +77,23 @@ while True:
         print(stuList)
 
     elif choiceNum1 == 2:
-        # alterStuName = input("请输入要修改信息的学生名称")
-        # alterStukey = input("请输入要修改学生的信息选项")
-        # alterStuvalue = input("请输入要修改学生信息选项内容")
-        # for list in stuList:
-        pass
+        alterStuOldKey = input("请输入要修改学生的信息选项")
+        alterStuOldValue = input("请输入要修改学生的信息选项内容")
+        for list in stuList:
+            if list[alterStuOldKey] == alterStuOldValue:
+                alterIndex = stuList.index(list)
+                for k,v in list.items():
+                    print("这个是您要修改的信息\n {} {}".format(k,v))
+
+        alterStuNewKey = input("请输入要修改的选项")
+        alterStuNewValue = input("请输入要修改学生新信息选项内容")
+        for alterDict in stuList:
+            if alterDict[alterStuOldKey] == alterStuOldValue:
+                alterDict[alterStuNewKey] = alterStuNewValue
+            for k1,v1 in alterDict.items():
+                print("这个是修改后的信息 \n {} {}".format(k1,v1))
+
     elif choiceNum1 == 3:
-        pass
-    elif choiceNum1 == 4:
         searchStuName = input("请输入要查找学生的姓名：")
         for list in stuList:
             if list["name"] == searchStuName:
@@ -93,7 +102,7 @@ while True:
                 for k,v in list.items():
                     print(k,v)
 
-    elif choiceNum1 == 5:
+    elif choiceNum1 == 4:
         print("您即将退出系统")
         exit()
     else:
