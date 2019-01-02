@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import  os
 welcome = 'welcome to Heroes world!'
-
+#oooo
 i = 0
 while True:
     if os.path.isfile('lock.log'):
