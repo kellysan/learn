@@ -30,23 +30,32 @@ nodeInfo= '''
     5 退出系统
 
 '''
-stuList = [{'name': '三胖', 'age': 14, 'class': '7年级1班', 'sex': '男'}]
-
+#stuList = [{'name': '三胖', 'age': 14, 'class': '7年级1班', 'sex': '男'}]
+stuList = []
+inputInfo = '''
+   0 添加资料信息
+   1 退出添加
+   提示：类只能使用英文，年龄请输入数字，内容请正确添加
+'''
 while True:
     print(nodeInfo)
-    choiceNum = int(input("请输入您需要的操作"))
-    if choiceNum == 0:
+    choiceNum1 = int(input("请输入您需要的操作"))
+    if choiceNum1 == 0:
         stuDict = {}
-        stuName = input("请输入学生姓名：")
-        stuDict["name"] = stuName
-        stuAge = int(input("请输入学生年龄："))
-        stuDict["age"] = stuAge
-        stuClass = input("请输入学生班级：")
-        stuDict["class"] = stuClass
-        stuSex = input("请输入学生性别：")
-        stuDict["sex"] = stuSex
-        print("您输入的学生信息为：{}".format(stuDict))
-        time.sleep(3)
+        while True:
+            print(inputInfo)
+            choiceNum2 = int(input("请输入您要的操作"))
+            if choiceNum2 == 0:
+                addStuKey = input("请输入要添加的类")
+                addStuValue = input("请输入您要添加类的内容")
+                stuDict[addStuKey] = addStuValue
+                print(stuDict)
+            elif choiceNum2 == 1:
+                break
+            else:
+                print("选择输入有误，请重新输入")
+            print("您输入的学生信息为：{}".format(stuDict))
+            time.sleep(1)
         #判断确认是否写入数据库
         flag = input("信息即将写入数据库：Y/N")
         if flag == "y" or flag == "Y":
@@ -59,7 +68,7 @@ while True:
         else:
             print("输入有误请重新输入")
 
-    elif choiceNum == 1:
+    elif choiceNum1 == 1:
         delStuName = input("请输入删除学生姓名：")
         for list in stuList:
             if list["name"] == delStuName:
@@ -67,15 +76,15 @@ while True:
                 print("{} 学生信息已经删除".format(delStuName))
         print(stuList)
 
-    elif choiceNum == 2:
-        alterStuName = input("请输入要修改信息的学生名称")
-        alterStukey = input("请输入要修改学生的信息选项")
-        alterStuvalue = input("请输入要修改学生信息选项内容")
-        for list in stuList:
-
-    elif choiceNum == 3:
+    elif choiceNum1 == 2:
+        # alterStuName = input("请输入要修改信息的学生名称")
+        # alterStukey = input("请输入要修改学生的信息选项")
+        # alterStuvalue = input("请输入要修改学生信息选项内容")
+        # for list in stuList:
         pass
-    elif choiceNum == 4:
+    elif choiceNum1 == 3:
+        pass
+    elif choiceNum1 == 4:
         searchStuName = input("请输入要查找学生的姓名：")
         for list in stuList:
             if list["name"] == searchStuName:
@@ -84,7 +93,7 @@ while True:
                 for k,v in list.items():
                     print(k,v)
 
-    elif choiceNum == 5:
+    elif choiceNum1 == 5:
         print("您即将退出系统")
         exit()
     else:
