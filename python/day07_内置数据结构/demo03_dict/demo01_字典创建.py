@@ -43,7 +43,9 @@ dict([]) 需要列表中的数据转换成键值对
 
 dict2 = dict([["name","小小雪"],("age",18),["sex","女"]])
 print(dict2)
-
+#字典推导式
+d = {x: x ** 3 for x in range(3,10)}
+print(d)
 #使用dict() 配合关键字参数
 print("—"*50)
 dict3 = dict(name="王二狗",age=30,city="北京")
