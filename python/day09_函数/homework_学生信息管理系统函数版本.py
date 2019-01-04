@@ -13,7 +13,7 @@ nodeInfo='''
 #stuList = []
 stuList = [{"name":"伞亚朋","age":18,"sex":"男"}]
 
-def stuAdd(name,age,sex):
+def stuAdd():
     '''
     用于添加学生信息
 
@@ -22,6 +22,9 @@ def stuAdd(name,age,sex):
     :param sex 学生性别
     '''
     stuDict = {}
+    name = input("请输入您要添加的学生姓名：")
+    age = int(input("请输入您要添加学生的年龄："))
+    sex = input("请输入您要添加学生的性别：")
     #将学生名称写入字典
     stuDict["name"] = name
     stuDict["age"] = age
@@ -32,12 +35,13 @@ def stuAdd(name,age,sex):
     print(stuList)
 
 
-def stuSelect(name):
+def stuSelect():
     '''
         查找学生
     :param name:  学生姓名
     :return:
     '''
+    name = input("请输入要查找的学生姓名")
     for dict in stuList:
         if dict["name"] == name:
             print("这是您要查找的学生信息")
@@ -47,13 +51,13 @@ def stuSelect(name):
             print("您要查找的学生不存在")
 
 
-def stuDel(name):
+def stuDel():
     '''
     删除学生
     :param name: 学生姓名
     :return:
     '''
-
+    name = input("请输入要删除的学生姓名")
     for dict in stuList:
         if dict["name"] == name:
             stuList.remove(dict)
@@ -63,30 +67,39 @@ def stuDel(name):
             print("您要删除的信息不存在")
 
 
-def stuChage(name,key,value):
+def stuChage():
     '''
     修改学生信息
     :param name:
     :return:
     '''
+    name = input("请输入您要修改学生信息名称：")
+    for dict in stuList:
+        if dict["name"] == name:
+            print("这是您要修改学生的信息")
+            for k,v in dict.items():
+                print(k,v)
+            stuChagekey = input("请您输入您要修改的选项：")
+            stuChageValue = input("请您输入您要修改的内容：")
+            dict[stuChagekey] = stuChageValue
+            print("这个是修改后的信息")
+            for k,v in dict.items():
+                print(k,v)
+        else:
+            print("您输入的学生信息不存在")
+        break
 
 if __name__ == '__main__':
     while True:
         print(nodeInfo)
         choice = int(input("请输入您要的操作："))
         if choice == 1:
-            name = input("请输入您要添加的学生姓名：")
-            age = int(input("请输入您要添加学生的年龄："))
-            sex = input("请输入您要添加学生的性别：")
-            stuAdd(name,age,sex)
-
+            stuAdd()
         elif choice == 2:
-            pass
+            stuChage()
         elif choice == 3:
-            name = input("请输入要查找的学生姓名")
-            stuSelect(name)
+            stuSelect()
         elif choice == 4:
-            name = input("请输入要删除的学生姓名")
-            stuDel(name)
+            stuDel()
         else:
             print("您输入的信息有误，请重新输入")
