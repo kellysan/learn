@@ -42,33 +42,20 @@ list2.sort(key=abs)
 print(list2)
 
 #排列字符串
+print("list3"*4)
 list3 = ["apple","oragne","abc","helloword","zz"]
-list3.sort()  #默认排序
-print(list3)
-
 #按照字母长度排序
-
-def sort_rule(str1):
-    return len(str1)
-
-list3.sort(key=sort_rule)
-print(list3)
-
-print('dddd',list3.sort(key=sort_rule,reverse=True))
+list3.sort(key=len)
 print(list3)
 
 '''
 练习1 给定的字符串忽略大小写排序
 练习2 给定一个字典，
 '''
-print("---"*10)
+print("练习1"*10)
 list4 = ["bob","rose","Tom","jerry","Jack"]
-list4.sort()
-print(list4)
-def sort_rule1(str1):
-    return str1.lower()
 
-list4.sort(key=lambda str :  str.lower())
+list4.sort(key=lambda x:x.lower())
 print(list4)
 
 students= [
