@@ -30,22 +30,26 @@ class A:
     def test2(self):
         print("父类的公有方法")
 
+    def test3(self):
+        print("父类的私有属性 {}".format(self.__num2))
+
 
 
 class B(A):
 
     def fun(self):
         # 尝试访问父类的私有属性
-        print("尝试访问父类的私有属性：{}".format(self.__num2))
+        #print("尝试访问父类的私有属性：{}".format(self.__num2))
 
 
         # 能否访问父类的共有属性
 
-
+        #print("尝试访问父类的共有属性：{}".format(self.num1))
         # 能否访问父类的私有方法
 
-
+        #self.__test1()
         # 能否访问父类的共有方法
+        self.test3()
 
 
 a1 = A()
