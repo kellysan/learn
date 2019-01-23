@@ -21,33 +21,33 @@
             如果 first_init 为False 证明没有初始化属性，那么就执行，修改为True
             如果 first_init 为True 直接return
 """
-class AiQiYi:
-    # 定义一个类属性，标记内存地址
-    __instance = None
-
-    # 定义一个类属性，用来标记init是否执行过 默认为False
-    __first_init = False
-
-
-    #重写new方法 __new__()方法主要是用来开辟内存创建对象，继承与object
-    def __new__(cls, *args, **kwargs):
-        if cls.__instance is None:
-            cls.__instance = object.__new__(cls)
-        # 如果上述条件不成立直接return
-        return cls.__instance
-
-    def __init__(self,name):
-        if AiQiYi.__first_init:
-            return
-        else:
-            self.name = name
-            AiQiYi.__first_init = True
-
-a1 = AiQiYi("bababa")
-a2 = AiQiYi("dddd")
-
-print(a1.name)
-print(a2.name)
+# class AiQiYi:
+#     # 定义一个类属性，标记内存地址
+#     __instance = None
+#
+#     # 定义一个类属性，用来标记init是否执行过 默认为False
+#     __first_init = False
+#
+#
+#     #重写new方法 __new__()方法主要是用来开辟内存创建对象，继承与object
+#     def __new__(cls, *args, **kwargs):
+#         if cls.__instance is None:
+#             cls.__instance = object.__new__(cls)
+#         # 如果上述条件不成立直接return
+#         return cls.__instance
+#
+#     def __init__(self,name):
+#         if AiQiYi.__first_init:
+#             return
+#         else:
+#             self.name = name
+#             AiQiYi.__first_init = True
+#
+# a1 = AiQiYi("bababa")
+# a2 = AiQiYi("dddd")
+#
+# print(a1.name)
+# print(a2.name)
 
 
 # class MusicPlayer:
@@ -88,3 +88,27 @@ print(a2.name)
 # print(play1 is play2)
 #
 # print(play1.name)
+
+class QQ(object):
+    #
+
+    __instance = None
+
+
+    #
+
+    __first_init = False
+
+
+    def __new__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = object.__new__(cls)
+        return cls.__instance
+
+
+    def __init__(self,name):
+        if QQ.__first_init:
+            return
+        else:
+            self.name = name
+            QQ.__first_init = True
