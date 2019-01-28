@@ -48,3 +48,24 @@ print(list1)
 list2 = [1,2,3,4,5,6,7,8,9,10]
 test4 = random.sample(list2,4)
 print(test4)
+
+
+#验证码
+def get_code(len):
+    code = ""
+    i = 0
+    while i < len:
+        run_num = random.randint(48,122)
+        if 57 < run_num < 65 or 90 < run_num < 97:
+            continue
+        code = code + chr(run_num)
+        i += 1
+    return code
+
+code = get_code(4)
+print('111111')
+print(code)
+
+input_num = input("请输入验证码")
+if input_num.lower() == code.lower():
+    print("输入正确")
