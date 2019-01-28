@@ -90,12 +90,15 @@ print(time1.isoweekday())
 
 #7 操作时间戳 timeseamp
 #获取时间戳
-time_num = time1.timestamp()
+print("-----------------------------------")
+time6 = datetime.now()
+print("time6",time6)
+time_num = time6.timestamp()
 print(time_num)
 
 #将时间戳转换为时间对象
-time4 = datetime.fromtimestamp(time_num)
-print(time4)
+time7 = datetime.fromtimestamp(time_num)
+print(time7)
 
 #8 时间和字符串之间的转换
 #字符串转换日期
