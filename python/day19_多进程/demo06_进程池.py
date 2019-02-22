@@ -13,6 +13,7 @@ import os
 
 def foo(name):
     print("foo", name)
+    return name
 
 
 if __name__ == '__main__':
@@ -26,6 +27,5 @@ if __name__ == '__main__':
     第一个参数，numprocess 进程池中子进程对象数量
     第二个参数，子进程要执行的任务
     '''
-    pool1 = Pool(3, foo, ("王二狗"))  #创建进程池并且分配了任务，一旦分配了任务就会自动执行
-
+    pool1 = Pool(3, foo, ("王二狗",))  #创建进程池并且分配了任务，一旦分配了任务就会自动执行
     #step 创建进程池，step2 apply()分配任务

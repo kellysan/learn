@@ -16,3 +16,12 @@ if __name__ == '__main__':
     print("main pid %d" % os.getpid())
 
     #2
+
+    def my_sum(x,y):
+        return x + y
+
+    sum = lambda x,y: my_sum(x,y)
+    print("--->", sum(10,20))
+
+
+
